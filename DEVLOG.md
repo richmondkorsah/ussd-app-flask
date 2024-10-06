@@ -79,6 +79,5 @@ The MoMo App project has made significant progress in the initial days, starting
 ## Social Media Links
 
 Feel free to connect with me on social media:
-
-    LinkedIn: https://www.linkedin.com/in/richmond-korsah-9a290b309/
-    Instagram: @_.richie_kk._
+- LinkedIn:  [LinkedIn](https://www.linkedin.com/in/richmond-korsah-9a290b309/)
+- Instagram: [Instagram](https://www.instagram.com/_.richie_kk._/)
