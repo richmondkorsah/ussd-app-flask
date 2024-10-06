@@ -24,7 +24,7 @@ project/
 ├── app.py                    # The main Flask app
 ├── templates/
 │   └── menu.html             # The HTML template for the MoMo app UI
-    └── transfer.html
+|    └── transfer.html
 │
 ├── static/
 │   ├── style/
