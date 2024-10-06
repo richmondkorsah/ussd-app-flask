@@ -3,44 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>MoMo App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
 </head>
 <body>
-    <h1>Menu</h1>
-    <form action="{{ url_for('action') }}" method="post">
-        <ul>
-            <li>
-                <input type="radio" name="choice" value="1" id="transfer">
-                <label for="transfer">Transfer Money</label>
-            </li>
-            <li>
-                <input type="radio" name="choice" value="2" id="momo">
-                <label for="momo">MomoPay & Pay Bill</label>
-            </li>
-            <li>
-                <input type="radio" name="choice" value="3" id="airtime">
-                <label for="airtime">Airtime & Bundles</label>
-            </li>
-            <li>
-                <input type="radio" name="choice" value="4" id="cashout">
-                <label for="cashout">Allow Cash Out</label>
-                <select name="cash_out">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
-            </li>
-            <li>
-                <input type="radio" name="choice" value="5" id="financial_service">
-                <label for="financial_service">Financial Service</label>
-            </li>
-            <li>
-                <input type="radio" name="choice" value="6" id="my_wallet">
-                <label for="my_wallet">My Wallet</label>
-            </li>
-        </ul>
-        <button type="submit">Submit</button>
-    </form>
-    <a href="{{ url_for('my_wallet') }}">Back to My Wallet</a>
+    <div class="container">
+        <h1>MoMo App</h1>
+        
+        <div class="balance">
+            <p>Account Balance</p>
+            <div class="balance-info">
+                <span id="balance" class="hidden">**********</span>
+                <button class="eye-button" onclick="toggleBalance()">&#128065;</button>
+            </div>
+            <small>Click on the eye icon to show/hide amount</small>
+        </div>
+
+        <div class="services">
+            <button class="service-btn">Transfer Money</button>
+            <button class="service-btn">Airtime & Bundles</button>
+            <button class="service-btn">Pay Bills</button>
+            <button class="service-btn">Allow Cash Out</button>
+            <button class="service-btn">Financial Services</button>
+            <button class="service-btn">Cash Out</button>
+        </div>
+
+        <div class="footer">
+            <button class="footer-btn">Secure Transactions</button>
+            <button class="footer-btn">View All Services</button>
+        </div>
+    </div>
 </body>
 </html>
