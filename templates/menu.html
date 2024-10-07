@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo App</title>
+    <title>MoMo App Menu</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
 </head>
 <body>
     <div class="container">
-        <h1>MoMo App</h1>
+        <h1 class="title">MoMo App</h1>
         
         <div class="balance">
-            <p>Account Balance</p>
-            <div class="balance-info">
-                <span id="balance" class="hidden">**********</span>
-                <button class="eye-button" onclick="toggleBalance()">&#128065;</button>
+            <p class="balance-title">Account Balance</p>
+            <p class="balance-text">Click on the eye icon to show/hide amount</p>
+            <div class="balance-display">
+                <span class="hidden-amount">********</span>
+                <button class="eye-icon">&#128065;</button>
             </div>
-            <small>Click on the eye icon to show/hide amount</small>
         </div>
 
-        <div class="services">
-            <button class="service-btn">Transfer Money</button>
-            <button class="service-btn">Airtime & Bundles</button>
-            <button class="service-btn">Pay Bills</button>
-            <button class="service-btn">Allow Cash Out</button>
-            <button class="service-btn">Financial Services</button>
-            <button class="service-btn">Cash Out</button>
+        <div class="menu-grid">
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('transfer') }}'">Transfer Money</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Airtime & Bundles</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Pay Bills</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Allow Cash Out</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Financial Services</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Cash Out</button>
+            <button class="menu-btn" onclick="window.location.href='{{ url_for('menu') }}'">Quick Transfer</button>
         </div>
 
-        <div class="footer">
+        <div class="footer-buttons">
             <button class="footer-btn">Secure Transactions</button>
             <button class="footer-btn">View All Services</button>
         </div>

@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from datetime import datetime
-import time
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Change this to a random secret key
@@ -15,32 +13,32 @@ cash_out = False
 def menu():
     return render_template('menu.html')
 
-@app.route('/action', methods=['GET', 'POST'])
+@app.route('/action', methods=['POST'])
 def action():
     global amount, pin, wrong_pin_count, cash_out
 
-    if request.method == 'POST':
-        choice = int(request.form['choice'])
+    # Get the selected choice from the form
+    choice = request.form.get('choice')
 
-        if choice == 1:  # Transfer Money
-            return redirect(url_for('transfer'))
-        elif choice == 2:  # MomoPay & Pay Bills
-            flash("MomoPay & Pay Bills functionality not implemented yet.")
-            return redirect(url_for('menu'))
-        elif choice == 3:  # Airtime & Bundles
-            flash("Airtime & Bundles functionality not implemented yet.")
-            return redirect(url_for('menu'))
-        elif choice == 4:  # Allow Cash Out
-            cash_out = request.form.get('cash_out') == '1'
-            flash("Cash Out status updated." if cash_out else "Cash Out not allowed.")
-            return redirect(url_for('menu'))
-        elif choice == 5:  # Financial Service
-            flash("Financial Services functionality not implemented yet.")
-            return redirect(url_for('menu'))
-        elif choice == 6:  # My Wallet
-            return redirect(url_for('my_wallet'))
+    if choice == '1':  # Transfer Money
+        return redirect(url_for('transfer'))
+    elif choice == '2':  # MomoPay & Pay Bills
+        flash("MomoPay & Pay Bills functionality not implemented yet.")
+        return redirect(url_for('menu'))
+    elif choice == '3':  # Airtime & Bundles
+        flash("Airtime & Bundles functionality not implemented yet.")
+        return redirect(url_for('menu'))
+    elif choice == '4':  # Allow Cash Out
+        cash_out = request.form.get('cash_out') == '1'
+        flash("Cash Out status updated." if cash_out else "Cash Out not allowed.")
+        return redirect(url_for('menu'))
+    elif choice == '5':  # Financial Service
+        flash("Financial Services functionality not implemented yet.")
+        return redirect(url_for('menu'))
+    elif choice == '6':  # My Wallet
+        return redirect(url_for('my_wallet'))
 
-    return render_template('action.html')
+    return render_template('menu.html')
 
 @app.route('/transfer', methods=['GET', 'POST'])
 def transfer():

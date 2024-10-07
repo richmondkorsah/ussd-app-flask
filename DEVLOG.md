@@ -69,12 +69,34 @@ if __name__ == '__main__':
 </body>
 </html>
 ```
+---
+## Day 3: UI Changes
+
+**Date**: [7th October, 2024]  
+**Tasks Completed**:  
+Today was a significant day in the development of the MoMo App. I worked on enhancing the User Interface (UI) to make it more visually appealing and intuitive. My goal was to create a clean and organized layout, similar to MTN's USSD service. Below are the key updates made today:
+
+- UI Overhaul: I redesigned the menu to match a more polished and modern look, inspired by the layout in the reference image.
+
+- Clickable Eye Icon: Implemented a feature allowing the user to toggle visibility of the account balance by clicking the eye icon next to the balance.
+
+- File Structure Changes: Adjusted the file organization by creating separate folders for styles (style/style.css) and JavaScript functionality (js/script.js).
+    
+- Menu Navigation: Buttons in the menu now correctly link to their respective pages (e.g., Transfer Money, Allow Cash Out).
+    
+- Form for Transfer Money: Created a new page with a form where users can input receiver number, amount, and PIN to transfer money. Styled the form to match the design.
+    
+- Bug Fixing: Addressed issues where buttons weren't redirecting to the correct pages and made necessary fixes.
+
+**Challenges**:  
+Alignment of UI elements took some time to perfect.
+Making sure the buttons functioned properly when clicked involved debugging the Flask routing and ensuring the styles and scripts were correctly linked.
 
 ---
-
+<!-- 
 ## Conclusion
 
-The MoMo App project has made significant progress in the initial days, starting with the app setup and then moving on to UI development. The next steps will focus on adding interactivity and refining the user interface. Stay tuned to find out more on the project
+The MoMo App project has made significant progress in the initial days, starting with the app setup and then moving on to UI development. The next steps will focus on adding interactivity and refining the user interface. Stay tuned to find out more on the project -->
 
 ## Social Media Links
 
