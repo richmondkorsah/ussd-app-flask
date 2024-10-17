@@ -35,4 +35,5 @@ project/
 │   │   └── script.js          # The JavaScript file for UI behavior
 │
 └── README.md                  # This documentation file
+└── DEVLOG.md
 ```
