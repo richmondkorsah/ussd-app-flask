@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block head %}
+<title>Momo App</title
+{% endblock head %}
+
+{% block body %}
     <div class="container">
         <h1>MoMo App</h1>
         
@@ -21,9 +18,9 @@
         </div>
 
         <div class="services">
-            <button class="service-btn">Transfer Money</button>
-            <button class="service-btn">Airtime & Bundles</button>
-            <button class="service-btn">Pay Bills</button>
+            <button class="service-btn" onclick="window.location.href='{{ url_for('transfer') }}'">Transfer Money</button>
+            <button class="service-btn" onclick="window.location.href='{{ url_for('airtime') }}'">Airtime & Bundles</button>
+            <button class="service-btn" onclick="window.location.href='{{ url_for('pay_bills') }}'">Pay Bills</button>
             <button class="service-btn">Allow Cash Out</button>
             <button class="service-btn">Financial Services</button>
             <button class="service-btn">Cash Out</button>
@@ -34,5 +31,5 @@
             <button class="footer-btn">View All Services</button>
         </div>
     </div>
-</body>
-</html>
+
+{% endblock body %}

@@ -69,7 +69,14 @@ if __name__ == '__main__':
 </body>
 </html>
 ```
+## Day 3: UI Development
 
+**Date**: [17th October, 2024]  
+**Tasks Completed**:
+
+- Devleoped the `airtime.html`, `pay-bills.html` and also worked on fixing the backend issues I've been having recently.
+- I added a jinja2 template to the project called `base.html`
+- After almost two weeks haitus I am back to continue working on the project after hitting a hard stop.
 ---
 
 ## Conclusion

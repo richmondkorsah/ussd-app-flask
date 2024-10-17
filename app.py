@@ -3,7 +3,6 @@ from datetime import datetime
 import time
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change this to a random secret key
 
 # Initial variables
 amount = 500.00
@@ -22,22 +21,22 @@ def action():
     if request.method == 'POST':
         choice = int(request.form['choice'])
 
-        if choice == 1:  # Transfer Money
-            return redirect(url_for('transfer'))
-        elif choice == 2:  # MomoPay & Pay Bills
+        if choice == 1:  
+            return redirect(url_for('transfer.html'))
+        elif choice == 2:  
             flash("MomoPay & Pay Bills functionality not implemented yet.")
-            return redirect(url_for('menu'))
-        elif choice == 3:  # Airtime & Bundles
+            return redirect(url_for('pay-bills'))
+        elif choice == 3:  
             flash("Airtime & Bundles functionality not implemented yet.")
-            return redirect(url_for('menu'))
-        elif choice == 4:  # Allow Cash Out
+            return redirect(url_for('airtime.html'))
+        elif choice == 4:  
             cash_out = request.form.get('cash_out') == '1'
             flash("Cash Out status updated." if cash_out else "Cash Out not allowed.")
             return redirect(url_for('menu'))
-        elif choice == 5:  # Financial Service
+        elif choice == 5:  
             flash("Financial Services functionality not implemented yet.")
             return redirect(url_for('menu'))
-        elif choice == 6:  # My Wallet
+        elif choice == 6:  
             return redirect(url_for('my_wallet'))
 
     return render_template('action.html')
@@ -73,20 +72,6 @@ def transfer():
 
     return render_template('transfer.html')
 
-@app.route('/my_wallet', methods=['GET', 'POST'])
-def my_wallet():
-    global amount, pin
-
-    if request.method == 'POST':
-        choice = int(request.form['wallet_choice'])
-
-        if choice == 1:  # Check Balance
-            flash(f"Your current balance is: GHS {amount:.2f}")
-            return redirect(url_for('my_wallet'))
-        elif choice == 2:  # Change & Reset PIN
-            return redirect(url_for('change_pin'))
-
-    return render_template('my_wallet.html')
 
 @app.route('/change_pin', methods=['GET', 'POST'])
 def change_pin():
@@ -107,6 +92,16 @@ def change_pin():
             flash("Incorrect current PIN. Try again.")
     
     return render_template('change_pin.html')
+
+@app.route('/airtime', methods=['GET', 'POST'])
+def airtime():
+    return render_template('airtime.html')
+
+
+@app.route('/pay-bills', methods=['GET', 'POST'])
+def pay_bills():
+    return render_template('pay-bills.html')
+       
 
 if __name__ == '__main__':
     app.run(debug=True)
