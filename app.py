@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 
 app = Flask(__name__)
+app.secret_key = 'your_unique_secret_key'
 
 # Initial variables
 amount = 500.00
 pin = 1234
 wrong_pin_count = 0
 cash_out = False
+cash_out_end_time = 5
 
 @app.route('/')
 def menu():
@@ -110,6 +112,30 @@ def financial_services():
 
 @app.route('/cashout', methods=['GET', 'POST'])
 def cashout():
+    global cash_out
+    
+    if request.method == 'POST':
+        choice = request.form.get('choice')  # Use 'choice' to match the form data
+        
+        if choice == 'yes':
+            cash_out = True
+            cash_out_end_time = datetime.now() + timedelta(minutes=3)  # Set end time to 3 minutes from now
+            flash("Cash Out has been enabled for 3 minutes.")
+            cash_out = False  # Disable cash out after 3 minutes
+
+        elif choice == 'no':
+            cash_out = False
+            cash_out_end_time = None
+            flash("Cash Out not allowed.")
+            return redirect(url_for('menu'))
+        
+        return redirect(url_for('menu'))
+    
+    if cash_out and datetime.now() > cash_out_end_time:
+        cash_out = False
+        cash_out_end_time = None  
+        flash("Cash Out has expired.")
+
     return render_template('cashout.html')
 
 

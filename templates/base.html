@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/modal.css') }}">
     <script src="{{ url_for('static', filename='script/script.js') }}"></script>
     {% block head %} {% endblock %}
 </head>
 <body>
+    <div id="flashModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button class="close-btn" onclick="closeModal('{{ url_for('menu') }}')">Close</button>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <script>
+            {% for message in messages %}
+                showFlashMessage({{ message|tojson }});
+            {% endfor %}
+        </script>
+      {% endif %}
+    {% endwith %}
+
     {% block body %} {% endblock %}
 </body>
 </html>

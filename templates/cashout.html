@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Pay Bills</title>
+<title>Cash Out</title>
 {% endblock head %}
 
 
@@ -9,8 +9,10 @@
 <div class="container">
     <h1>Allow Cash Out</h1>
     <div class="cashout-service">
-        <button class="cashout-btn">Yes</button>
-        <button class="cashout-btn">No</button>
+        <form action="{{ url_for('cashout') }}" method="POST">
+            <button type="submit" name="choice" value="yes" class="cashout-btn">Yes</button>
+            <button type="submit" name="choice" value="no" class="cashout-btn">No</button>
+        </form>
     </div>
 </div>
 {% endblock body %}
