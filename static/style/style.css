@@ -76,6 +76,22 @@ small {
     background-color: #c1aedb;
 }
 
+.cashout-btn {
+    background-color: #dbcff2;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.1em;
+    color: #5a3d7f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+}
+
+.cashout-btn:hover {
+    background-color: #c1aedb;
+}
+
 .footer {
     margin-top: 20px;
 }

@@ -101,7 +101,23 @@ def airtime():
 @app.route('/pay-bills', methods=['GET', 'POST'])
 def pay_bills():
     return render_template('pay-bills.html')
-       
+    
+
+@app.route('/financial-services', methods=['GET', 'POST'])
+def financial_services():
+    return render_template('financial-services.html')
+
+
+@app.route('/cashout', methods=['GET', 'POST'])
+def cashout():
+    return render_template('cashout.html')
+
+
+@app.route('/my-wallet', methods=['GET', 'POST'])
+def my_wallet():
+    return render_template('my-wallet.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
