@@ -127,3 +127,12 @@ small {
 .eye-button:focus {
     outline: none;
 }
+
+.back-arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: #007bff; /* Change to your preferred color */
+    font-size: 18px; /* Adjust size as needed */
+}

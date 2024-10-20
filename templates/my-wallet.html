@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>My Wallet</title>
+{% endblock head %}
+
+{% block body %} 
+<div class="container">
+    <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
+    <h1>My Wallet</h1>
+
+    <div class="balance">
+        <p>Account Balance</p>
+        <div class="balance-info">
+            <span id="balance" class="hidden">**********</span>
+            <button class="eye-button" onclick="toggleBalance()">&#128065;</button>
+        </div>
+        <small>Click on the eye icon to show/hide amount</small>
+    </div>
+
+
+    <div class="services">
+        <button class="service-btn" onclick="window.location.href='{{ url_for('cashout') }}'">Allow Cash Out</button>
+        <button class="service-btn">My Approvals</button>
+        <button class="service-btn" onclick="window.location.href='{{ url_for('report_fraud') }}'">Report Fraud</button>
+        <button class="service-btn">Statement</button>
+        <button class="service-btn">Change & Reset PIN</button>
+        <button class="service-btn">Update Profile Type</button>
+    </div>
+</div>
+{% endblock body %}

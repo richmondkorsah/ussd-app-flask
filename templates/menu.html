@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Momo App</title
+<title>Momo App</title>
 {% endblock head %}
 
 {% block body %}
     <div class="container">
         <h1>MoMo App</h1>
         
-        <div class="balance">
+        <!-- <div class="balance">
             <p>Account Balance</p>
             <div class="balance-info">
                 <span id="balance" class="hidden">**********</span>
@@ -16,7 +16,7 @@
             </div>
             <small>Click on the eye icon to show/hide amount</small>
         </div>
-
+ -->
         <div class="services">
             <button class="service-btn" onclick="window.location.href='{{ url_for('transfer') }}'">Transfer Money</button>
             <button class="service-btn" onclick="window.location.href='{{ url_for('airtime') }}'">Airtime & Bundles</button>

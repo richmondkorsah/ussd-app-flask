@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    color: #5a3d7f;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+input[type="tel"], textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    background-color: #f7f3f9;
+    color: #5a3d7f;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #dbcff2;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.1em;
+    color: #5a3d7f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+    align-items: stretch;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button[type="submit"]:hover {
+    background-color: #c1aedb;
+}
+
+input:focus, textarea:focus, button:focus {
+    outline: none;
+    border-color: #5a3d7f;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: #8465a9;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    input[type="tel"], textarea {
+        padding: 12px;
+    }
+}

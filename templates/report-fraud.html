@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
+<title>Report Fraud</title>
+{% endblock head %}
+
+{% block body %} 
+<div class="container">
+    <h1>Report Fraud</h1>
+    <form>
+        <label for="fraud-number">Report Number:</label>
+        <input type="tel" id="fraud-number" name="fraud-number" placeholder="Phone number must start with 0 and be followed by 9 digits"
+       pattern="(\0)[0-9]{9}" maxlength="10 ">
+
+        <label for="complaint">Complaint:</label>
+        <textarea id="complaint" name="complaint" placeholder="Enter your complaint here"></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock body %}
