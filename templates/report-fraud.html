@@ -8,15 +8,15 @@
 {% block body %} 
 <div class="container">
     <h1>Report Fraud</h1>
-    <form>
+    <form action="{{ url_for('report_fraud') }}" method="POST">
         <label for="fraud-number">Report Number:</label>
         <input type="tel" id="fraud-number" name="fraud-number" placeholder="Phone number must start with 0 and be followed by 9 digits"
-       pattern="(\0)[0-9]{9}" maxlength="10 ">
+       pattern="(0)[0-9]{9}" maxlength="10 ">
 
         <label for="complaint">Complaint:</label>
         <textarea id="complaint" name="complaint" placeholder="Enter your complaint here"></textarea><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" name="submit" value="submit">Submit</button>
     </form>
 </div>
 {% endblock body %}

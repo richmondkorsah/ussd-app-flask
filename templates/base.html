@@ -9,7 +9,16 @@
     {% block head %} {% endblock %}
 </head>
 <body>
-    <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
+    <div class="wrapper">
+        <div class="nav-bar">
+            <nav>
+                <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
+                <a href="/">Home</Menu></a>
+                <a href="my-wallet">Wallet</a>
+            </nav>
+        </div>
+        {% block body %} {% endblock %}
+    </div>
 
     <div id="flashModal" class="modal">
         <div class="modal-content">
@@ -28,6 +37,5 @@
       {% endif %}
     {% endwith %}
 
-    {% block body %} {% endblock %}
 </body>
 </html>

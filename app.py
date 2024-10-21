@@ -145,6 +145,12 @@ def my_wallet():
 
 @app.route('/report-fraud', methods=['GET', 'POST'])
 def report_fraud():
+    if request.method == 'POST':
+        submit = request.form.get('submit')
+        
+        if submit == 'submit':
+            flash("Your complaint has been filed thank you.")
+        
     return render_template('report-fraud.html')
 
 if __name__ == '__main__':
