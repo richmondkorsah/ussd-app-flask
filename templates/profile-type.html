@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
+<title>Report Fraud</title>
+{% endblock head %}
+
+{% block body %} 
+<div class="container">
+    <h1>Report Fraud</h1>
+    <form action="{{ url_for('profile_type') }}" method="POST">
+        <label for="profile-type">Profile Type</label>
+        <select>
+            <option value="standard">Standard</option>
+            <option value="merchant">Merchant</option>
+            <option value="premium">Premium</option>
+        </select>
+
+        <button type="submit" name="submit" value="submit">Submit</button>
+    </form>
+</div>
+{% endblock body %}

@@ -11,6 +11,7 @@ pin = 1234
 wrong_pin_count = 0
 cash_out = False
 cash_out_end_time = 5
+profile_type = 'standard'
 
 @app.route('/')
 def menu():
@@ -152,6 +153,11 @@ def report_fraud():
             flash("Your complaint has been filed thank you.")
         
     return render_template('report-fraud.html')
+
+@app.route('/profile-type', methods=['GET', 'POST'])
+def profile_type():
+    return render_template('profile-type.html')
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
