@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
+<title>Confirm Deposit</title>
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+    <h1>Make a Deposit</h1>
+    <form id="depositForm" action="{{ url_for('my_approval') }}" method="POST">
+        <label for="amount">Deposit Amount</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <button type="button" onclick="showPinDialog()">Submit</button>
+    </form>
+
+    <!-- Pin Confirmation Dialog -->
+    <div id="pinDialog" style="display:none;">
+        <h3>Enter PIN to Confirm</h3>
+        <input type="password" id="pin" placeholder="Enter your PIN" required>
+        <button type="button" onclick="submitForm()">Confirm</button>
+        <button type="button" onclick="closePinDialog()">Cancel</button>
+    </div>
+</div>
+
+{% endblock body %}

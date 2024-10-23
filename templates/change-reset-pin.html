@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Reset PIN</title>
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+    <h1>Reset PIN</h1>
+    <form action="{{ url_for('change_reset_pin') }}" method="POST">
+        <button type="submit" name="change_reset_pin" value="change_pin" class="cashout-btn">Change PIN</button>
+        <button type="submit" name="change_reset_pin" value="reset_pin" class="cashout-btn">Reset PIN</button>
+    </form>
+</div>
+{% endblock body %}

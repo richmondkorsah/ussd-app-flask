@@ -2,18 +2,18 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
-<title>Report Fraud</title>
+<title>Change Profile Type</title>
 {% endblock head %}
 
 {% block body %} 
 <div class="container">
-    <h1>Report Fraud</h1>
+    <h1>Change Profile Type</h1>
     <form action="{{ url_for('profile_type') }}" method="POST">
         <label for="profile-type">Profile Type</label>
-        <select>
-            <option value="standard">Standard</option>
-            <option value="merchant">Merchant</option>
-            <option value="premium">Premium</option>
+        <select name="profile_type" id="profile-type">
+            <option value="standard" name="profile_type">Standard</option>
+            <option value="merchant" name="profile_type">Merchant</option>
+            <option value="premium" name="profile_type">Premium</option>
         </select>
 
         <button type="submit" name="submit" value="submit">Submit</button>

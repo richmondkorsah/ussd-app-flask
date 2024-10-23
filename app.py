@@ -10,7 +10,7 @@ amount = 500.00
 pin = 1234
 wrong_pin_count = 0
 cash_out = False
-cash_out_end_time = 5
+cash_out_end_time = 180
 profile_type = 'standard'
 
 @app.route('/')
@@ -76,25 +76,59 @@ def transfer():
     return render_template('transfer.html')
 
 
-@app.route('/change_pin', methods=['GET', 'POST'])
+@app.route('/change-reset-pin', methods=['GET', 'POST'])
+def change_reset_pin():
+    if request.method == 'POST':
+        choice = request.form.get('change_reset_pin')
+        
+        if choice == "change_pin":
+            return(redirect(url_for('change_pin')))
+            
+        elif choice == "reset_pin":
+            return(redirect(url_for('reset_pin')))
+        
+    return render_template('change-reset-pin.html')
+
+
+@app.route('/change-pin', methods=['GET', 'POST'])
 def change_pin():
     global pin
-
-    if request.method == 'POST':
-        current_pin = int(request.form['current_pin'])
-        if current_pin == pin:
-            new_pin = int(request.form['new_pin'])
-            confirm_pin = int(request.form['confirm_pin'])
-            if new_pin == confirm_pin:
-                pin = new_pin
-                flash("PIN changed successfully.")
-                return redirect(url_for('my_wallet'))
-            else:
-                flash("PINs do not match. Try again.")
-        else:
-            flash("Incorrect current PIN. Try again.")
     
-    return render_template('change_pin.html')
+    if request.method == 'POST':
+        current_pin = request.form.get('current_pin')
+        new_pin = request.form.get('new_pin')
+
+        # Check if the current PIN matches the stored PIN
+        if current_pin == pin:
+            pin = new_pin  # Update with the new PIN (in real case, store securely)
+            flash('Your PIN has been changed successfully!', 'success')
+            return redirect(url_for('menu'))  # Replace 'menu' with your actual route
+        else:
+            flash('Incorrect current PIN. Please try again.', 'danger')
+            return redirect(url_for('change_pin'))
+        
+    return render_template('change-pin.html')
+        
+        
+@app.route('/reset-pin', methods=['GET', 'POST'])
+def reset_pin():
+    global pin
+    
+    if request.method == 'POST':
+        security_answer = request.form.get('security_answer')
+        new_pin = request.form.get('new_pin')
+
+        # Verify the security answer (replace with proper verification logic)
+        if security_answer.lower() == 'blue':  # Example security answer
+            pin = new_pin  # Reset the PIN (store securely in real applications)
+            flash('Your PIN has been reset successfully!', 'success')
+            return redirect(url_for('menu'))  # Replace 'menu' with your actual route
+        else:
+            flash('Incorrect security answer. Please try again.', 'danger')
+            return redirect(url_for('reset_pin'))
+
+    return render_template('reset-pin.html')
+
 
 @app.route('/airtime', methods=['GET', 'POST'])
 def airtime():
@@ -151,13 +185,40 @@ def report_fraud():
         
         if submit == 'submit':
             flash("Your complaint has been filed thank you.")
+            return redirect(url_for('menu'))
         
     return render_template('report-fraud.html')
 
 @app.route('/profile-type', methods=['GET', 'POST'])
 def profile_type():
-    return render_template('profile-type.html')
+    global profile_type
     
+    if request.method == 'POST':
+        submit = request.form.get('submit')
+        profile_type = request.form.get('profile_type')
+        
+        if submit == 'submit' and profile_type:
+            flash(f"Congratulations, you have sucessfully changed your profile type to {profile_type}")
+            return(redirect(url_for('menu')))
+    
+    return render_template('profile-type.html')
+
+@app.route('/my-approvals', methods=['GET'])
+def my_approval():
+    if request.method == 'POST': 
+
+        amount = request.form.get('amount')
+        pin = request.form.get('pin')
+    # Validate PIN
+        if pin == pin:
+            flash(f'Deposit of {amount} confirmed successfully!', 'success')
+            return redirect(url_for('menu'))  # Replace 'menu' with your actual route
+
+        else:
+            flash('Invalid PIN. Please try again.', 'danger')
+            return redirect(url_for('deposit'))  # Go back to the deposit form
+
+    return render_template('my-approvals.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

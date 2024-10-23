@@ -6,7 +6,6 @@
 
 {% block body %} 
 <div class="container">
-    <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
     <h1>My Wallet</h1>
 
     <div class="balance">
@@ -21,10 +20,10 @@
 
     <div class="services">
         <button class="service-btn" onclick="window.location.href='{{ url_for('cashout') }}'">Allow Cash Out</button>
-        <button class="service-btn">My Approvals</button>
+        <button class="service-btn" onclick="window.location.href='{{ url_for('my_approval') }}'">My Approvals</button>
         <button class="service-btn" onclick="window.location.href='{{ url_for('report_fraud') }}'">Report Fraud</button>
         <button class="service-btn">Statement</button>
-        <button class="service-btn">Change & Reset PIN</button>
+        <button class="service-btn" onclick="window.location.href='{{ url_for('change_reset_pin') }}'">Change & Reset PIN</button>
         <button class="service-btn" onclick="window.location.href='{{ url_for('profile_type') }}'">Update Profile Type</button>
     </div>
 </div>
