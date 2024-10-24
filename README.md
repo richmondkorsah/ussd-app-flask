@@ -31,6 +31,7 @@ project/
 ├── static/
 │   ├── style/
 │   │   └── style.css          # The CSS file for the app's styling
+|   |   └── form.css
 │   ├── js/
 │   │   └── script.js          # The JavaScript file for UI behavior
 │
