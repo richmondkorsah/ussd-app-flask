@@ -176,7 +176,7 @@ def cashout():
 
 @app.route('/my-wallet', methods=['GET', 'POST'])
 def my_wallet():
-    return render_template('my-wallet.html')
+    return render_template('my-wallet.html', amount=amount)
 
 @app.route('/report-fraud', methods=['GET', 'POST'])
 def report_fraud():

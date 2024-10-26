@@ -1,15 +1,3 @@
-let isHidden = true;
-
-function toggleBalance() {
-    const balanceSpan = document.getElementById('balance');
-    if (isHidden) {
-        balanceSpan.textContent = '500.00 GHS';
-    } else {
-        balanceSpan.textContent = '**********';
-    }
-    isHidden = !isHidden;
-}
-
 function showFlashMessage(message) {
     const modal = document.getElementById("flashModal");
     const modalMessage = document.getElementById("modalMessage");

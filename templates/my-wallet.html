@@ -8,6 +8,30 @@
 <div class="container">
     <h1>My Wallet</h1>
 
+    <script>
+        const currentAmount = {{ amount|tojson|safe }};
+        let isHidden = true;
+    
+        function toggleBalance() {
+            const balanceSpan = document.getElementById('balance');
+            
+            if (isHidden) {
+                balanceSpan.textContent = `GHS ${currentAmount.toFixed(2)}`;
+            } else {
+                balanceSpan.textContent = '**********';
+            }
+            
+            isHidden = !isHidden;
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleBtn = document.getElementById('toggle-button');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', toggleBalance);
+            }
+        });
+    </script>
+
     <div class="balance">
         <p>Account Balance</p>
         <div class="balance-info">
